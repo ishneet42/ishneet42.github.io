@@ -7,8 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "gh-pages -d out",
-    "predeploy": "npm run build"
+    "deploy": "gh-pages -d out --nojekyll",
+    "predeploy": "npm run build",
+    "postbuild": "python3 -c \"from pathlib import Path; Path('out/.nojekyll').write_text('')\""
   },
   "dependencies": {
     "next": "16.1.0",
